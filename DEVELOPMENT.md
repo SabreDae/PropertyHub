@@ -5,7 +5,7 @@ This guide will help you set up the project for local development.
 ## Prerequisites
 
 - Python 3.10 or higher
-- pip (Python package installer)
+- pip
 - git
 
 ## Initial Setup
@@ -75,7 +75,6 @@ Settings ( .vscode/settings.json):
         ".",
         "-s",
         "-v"
-
     ],
 }
 ```
@@ -86,14 +85,24 @@ Settings ( .vscode/settings.json):
 python3 manage.py runserver
 ```
 
-The API will be available at http://localhost:8000/.
+The API will be available at http://localhost:8000/api/properties/.
 The admin interface will be available at http://localhost:8000/admin/.
+
+If any model or database changes are made, ensure the required migration commands are executed to keep the database schema in sync:
+
+```bash
+# Generate new migrations
+python3 manage.py makemigrations
+
+# Apply migrations to the database
+python3 manage.py migrate
+```
 
 ## Running Tests
 
 ```bash
 # Run all tests
-python manage.py test
+python3 manage.py test
 ```
 
-Tests can also be run via the IDE and PyTest/Unittest discovery, though depending on the IDE used further configuration may be required.
+Tests can also be run via the IDE and pytest/unittest discovery, though depending on the IDE used further configuration may be required.
