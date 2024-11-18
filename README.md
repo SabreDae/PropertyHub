@@ -1,4 +1,4 @@
-# ZDApi
+# PropertyHub
 
 A Django REST API service for managing property listings with soft delete functionality. This service provides endpoints for creating, reading, updating, and deleting property records, with built-in support for soft deletion and administrative functions.
 
@@ -41,4 +41,4 @@ DELETE /api/properties/{id}/          # Delete property
 POST   /api/properties/{id}/recover/  # Recover property
 ```
 
-See [DEVELOPMENT.md](https://github.com/SabreDae/ZDApi/blob/main/DEVELOPMENT.md) for setup and development guidelines.
+See [DEVELOPMENT.md](https://github.com/SabreDae/PropertyHub/blob/main/DEVELOPMENT.md) for setup and development guidelines.
