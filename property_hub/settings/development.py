@@ -3,7 +3,17 @@ from .base import *
 
 DEBUG = True
 
-ALLOWED_HOSTS = ['testserver', 'localhost', '127.0.0.1']
+ALLOWED_HOSTS = ["testserver", "localhost", "127.0.0.1"]
+
+INSTALLED_APPS += [
+    "rest_framework_simplejwt",
+]
+
+REST_FRAMEWORK = {
+    "DEFAULT_AUTHENTICATION_CLASSES": (
+        "rest_framework_simplejwt.authentication.JWTAuthentication",
+    ),
+}
 
 CORS_ALLOW_ALL_ORIGINS = True
 
