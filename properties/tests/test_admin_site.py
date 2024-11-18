@@ -68,7 +68,7 @@ class PropertyAdminTests(TestCase):
 
     def test_fieldsets(self):
         expected_fields = (
-            "id" "address",
+            "address",
             "post_code",
             "city",
             "number_of_rooms",
