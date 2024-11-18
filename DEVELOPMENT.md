@@ -13,8 +13,8 @@ This guide will help you set up the project for local development.
 1. Clone the repository:
 
 ```bash
-git clone https://github.com/SabreDae/ZDApi.git
-cd <project-directory>
+git clone https://github.com/SabreDae/PropertyHub.git
+cd PropertyHub/
 ```
 
 2. Create and activate a virtual environment
