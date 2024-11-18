@@ -4,11 +4,15 @@ from django.http import HttpRequest
 
 from .models import Property
 
-def purge_soft_deleted(modeladmin: ModelAdmin, request: HttpRequest, queryset: Property):
+
+def purge_soft_deleted(
+    modeladmin: ModelAdmin, request: HttpRequest, queryset: Property
+):
     retention_period = 30
     # FIXME: Providing a hard-coded retention period, but this could be flexible and received from front-end
     count = Property.purge_delete_marked_records(retention_period)
     modeladmin.message_user(request, f"{count} properties were permanently deleted.")
+
 
 @admin.register(Property)
 class PropertyAdmin(ModelAdmin):
@@ -27,7 +31,18 @@ class PropertyAdmin(ModelAdmin):
         - Created_by and deleted_at fields are read-only
         - Custom purge action available for cleaning up old deleted properties
     """
-    list_display = ["address", "post_code", "city", "number_of_rooms", "created_by", "is_deleted", "deleted_at", "created_at", "updated_at"]
+
+    list_display = [
+        "address",
+        "post_code",
+        "city",
+        "number_of_rooms",
+        "created_by",
+        "is_deleted",
+        "deleted_at",
+        "created_at",
+        "updated_at",
+    ]
     list_filter = ["is_deleted", "created_by"]
     search_fields = ["address", "post_code", "city"]
     readonly_fields = ["created_by", "deleted_at", "updated_at", "created_at"]
@@ -36,7 +51,6 @@ class PropertyAdmin(ModelAdmin):
             None,
             {
                 "fields": (
-                    "id"
                     "address",
                     "post_code",
                     "city",
@@ -44,8 +58,8 @@ class PropertyAdmin(ModelAdmin):
                     "created_by",
                     "is_deleted",
                     "deleted_at",
-                    "created_at", 
-                    "updated_at"
+                    "created_at",
+                    "updated_at",
                 )
             },
         ),
